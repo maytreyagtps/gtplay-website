@@ -741,7 +741,7 @@
                     <div class="host-item"><div class="host-info"><i class="fab fa-apple"></i><span class="host-name">Surge 5</span><span class="host-platform">iOS</span></div><div class="host-actions"><button class="copy-btn" data-copy-text="https://dash.gtps.cloud/ios/6986" data-host-name="Surge 5"><i class="far fa-copy"></i><span class="btn-text">Copy URL</span></button></div></div>
                     <div class="host-item"><div class="host-info"><i class="fas fa-network-wired"></i><span class="host-name">Virtual Host</span><span class="host-platform">Android/PC</span></div><div class="host-actions"><button class="copy-btn" data-copy-text="91.134.85.13 growtopia1.com&#10;91.134.85.13 growtopia2.com&#10;91.134.85.13 www.growtopia1.com&#10;91.134.85.13 www.growtopia2.com" data-host-name="Virtual Host"><i class="far fa-copy"></i><span class="btn-text">Copy entries</span></button></div></div>
                     <div class="host-item"><div class="host-info"><i class="fab fa-windows"></i><span class="host-name">Windows Hosts</span><span class="host-platform">PC</span></div><div class="host-actions"><button class="copy-btn" data-copy-text="91.134.85.13 growtopia1.com&#10;91.134.85.13 growtopia2.com&#10;91.134.85.13 www.growtopia1.com&#10;91.134.85.13 www.growtopia2.com" data-host-name="Windows Hosts"><i class="far fa-copy"></i><span class="btn-text">Copy entries</span></button></div></div>
-                    <div class="host-item"><div class="host-info"><div class="custom-icon"><i class="fas fa-mobile-screen-button"></i></div><span class="host-name">GTPS Custom APK</span><span class="host-platform">Android</span></div><div class="host-actions"><a href="#" data-link-placeholder="[UNDERDEVELOP]" aria-label="APK link belum tersedia" target="_blank" class="download-btn"><i class="fas fa-download"></i></a></div></div>
+                    <div class="host-item"><div class="host-info"><div class="custom-icon"><i class="fas fa-mobile-screen-button"></i></div><span class="host-name">GTPS Custom APK</span><span class="host-platform">Android</span></div><div class="host-actions"><a href="https://dash.gtps.cloud/gtpscloud.apk" aria-label="Download GTPS Custom APK" target="_blank" class="download-btn"><i class="fas fa-download"></i></a></div></div>
                 </div>
                 <div class="helper-note">Alternatif termudah: Gunakan Growsoft (Windows dan Android) yang otomatis mengatur hosts.</div>
             </div>
@@ -901,26 +901,15 @@
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeBurger(); });
         if (burgerMenu) burgerMenu.addEventListener('click', (e) => e.stopPropagation());
 
-        // DASHBOARD API
         // =========================
         // GTPLAY CONFIGURATION
         // =========================
-        // Logo URL: [UNDERDEVELOP]
-        // Home icon URL: [UNDERDEVELOP]
-        // Info icon URL: [UNDERDEVELOP]
-        // Host icon URL: [UNDERDEVELOP]
-        // How to Play icon URL: [UNDERDEVELOP]
-        // Search Item icon URL: [UNDERDEVELOP]
-        // Event icon URL: [UNDERDEVELOP]
-        // Community icon URL: [UNDERDEVELOP]
-        // Download APK URL: [UNDERDEVELOP]
-        // G-API ID: replace '[ISI G-API ID]' when available.
         const SERVER_ID = '6986';
+        const G_API_ID = '20367'; // G-API ID yang sudah diganti
         const API_MAIN = 'https://api.gtps.cloud/api/server/public/' + SERVER_ID;
-        const DISCORD_URL = 'https://discord.gg/B67yKDbfZd';
-        const G_API_ID = '[ISI G-API ID]';
         const API_STATUS = 'https://api.gtps.cloud/g-api/' + G_API_ID + '/status';
         const API_WORLDS = 'https://api.gtps.cloud/g-api/' + G_API_ID + '/worlds';
+        const DISCORD_URL = 'https://discord.gg/B67yKDbfZd';
 
         async function fetchJSON(url) {
             try {
@@ -1016,7 +1005,6 @@
         async function updateDashboard() {
             const [main, status, worldsData] = await Promise.all([fetchJSON(API_MAIN), fetchJSON(API_STATUS), fetchJSON(API_WORLDS)]);
             let serverName = 'GTPS Server', serverIP = '91.134.85.13:17091';
-            // GTPLAY configuration: keep the public website identity fixed.
             serverName = 'GTPLAY';
             serverIP = '91.134.85.13';
             document.getElementById('serverName').innerHTML = serverName;
